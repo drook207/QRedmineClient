@@ -15,6 +15,10 @@ add_library(QRedmineClient SHARED
   QRedmineClient_global.h
   qredmineclient.cpp
   qredmineclient.h
+  authenticator.h authenticator.cpp
+  passwordauthentication.h passwordauthentication.cpp
+  tokenauthentication.h tokenauthentication.cpp
+  request.h request.cpp
 )
 
 target_link_libraries(QRedmineClient PRIVATE Qt${QT_VERSION_MAJOR}::Core)
