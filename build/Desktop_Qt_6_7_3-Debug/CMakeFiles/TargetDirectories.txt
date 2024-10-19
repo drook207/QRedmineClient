@@ -1,5 +1,0 @@
-/home/pascalb/development/repos/QRedmineClient/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/QRedmineClient.dir
-/home/pascalb/development/repos/QRedmineClient/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/edit_cache.dir
-/home/pascalb/development/repos/QRedmineClient/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/rebuild_cache.dir
-/home/pascalb/development/repos/QRedmineClient/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/QRedmineClient_autogen_timestamp_deps.dir
-/home/pascalb/development/repos/QRedmineClient/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/QRedmineClient_autogen.dir
