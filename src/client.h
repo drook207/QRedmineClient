@@ -34,8 +34,18 @@ public:
   [[nodiscard]] QString UserAgent() const;
   void setUserAgent(const QString &newUserAgent);
 
+public slots:
+
+  void handleSslError(QNetworkReply *const reply,
+					  const QList<QSslError> &errors);
+
+  void replyFinished(QNetworkReply *const reply);
+signals:
+  void initialised();
+
 private:
-  QNetworkAccessManager mManger{};
+  void init();
+  QNetworkAccessManager *mManger{};
 
   QUrl mUrl{};
   bool mSslVerify = true;

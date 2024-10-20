@@ -2,6 +2,7 @@
 #include "passwordauthentication.h"
 #include "tokenauthentication.h"
 #include <QLoggingCategory>
+#include <QNetworkReply>
 
 namespace QRedmine {
 
@@ -62,7 +63,19 @@ bool Client::setAuthenticationMethod(const QStringView &username,
   return true;
 }
 
-void Client::reconnect() {}
+void Client::reconnect() {
+
+  if (nullptr != mManger) {
+	mManger->deleteLater();
+  }
+
+  mManger = new QNetworkAccessManager(this);
+
+  connect(mManger, &QNetworkAccessManager::finished, this,
+		  &Client::replyFinished);
+  connect(mManger, &QNetworkAccessManager::sslErrors, this,
+		  &Client::handleSslError);
+}
 
 QUrl Client::Url() const { return mUrl; }
 
@@ -76,6 +89,25 @@ QString Client::UserAgent() const { return mUserAgent; }
 
 void Client::setUserAgent(const QString &newUserAgent) {
   mUserAgent = newUserAgent;
+}
+
+void Client::handleSslError(QNetworkReply *const reply,
+							const QList<QSslError> &errors) {
+  if (!mSslVerify) {
+	reply->ignoreSslErrors();
+  }
+}
+
+void Client::replyFinished(QNetworkReply *const reply) {}
+
+void Client::init() {
+  if (mUrl.isEmpty() || !mUrl.isValid()) {
+	qDebug(lcClient) << "No valid url is set.";
+	return;
+  }
+  reconnect();
+
+  emit initialised();
 }
 
 } // namespace QRedmine

@@ -2,10 +2,6 @@
 
 namespace QRedmine {
 
-	Request::Request(QObject *parent)
-		: QObject{parent}
-	{
+Request::Request(QObject *parent) : QObject(parent) {}
 
-	}
-
-	} // namespace QRedmineClient
+} // namespace QRedmine

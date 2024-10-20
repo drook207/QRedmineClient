@@ -1,4 +1,3 @@
-cmake_minimum_required(VERSION 3.16)
 
 project(QRedmineClient LANGUAGES CXX)
 
@@ -23,7 +22,8 @@ add_library(
   tokenauthentication.h
   tokenauthentication.cpp
   request.h
-  request.cpp)
+  request.cpp
+  jsonrequest.h jsonrequest.cpp)
 
 target_link_libraries(QRedmineClient PRIVATE Qt${QT_VERSION_MAJOR}::Core
 											 Qt${QT_VERSION_MAJOR}::Network)

@@ -1,18 +1,25 @@
 #pragma once
 
+#include <QNetworkRequest>
 #include <QObject>
-
+#include <qnetworkreply.h>
 namespace QRedmine {
 
-	class Request : public QObject
-	{
-		Q_OBJECT
-	public:
-		explicit Request(QObject *parent = nullptr);
+class Request : public QObject {
+  Q_OBJECT
+public:
+  explicit Request(QObject *parent = nullptr);
 
-	signals:
+protected:
+  QNetworkRequest mRequest{};
+  QNetworkReply *mReply{};
 
-	};
+signals:
+  void finished();
+  void timeout();
 
-	} // namespace QRedmineClient
+private slots:
+  virtual void requestFinished();
+};
 
+} // namespace QRedmine
