@@ -1,4 +1,4 @@
-#include "qredmineclient.h"
+#include "client.h"
 #include "passwordauthentication.h"
 #include "tokenauthentication.h"
 #include <QLoggingCategory>

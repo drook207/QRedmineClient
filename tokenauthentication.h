@@ -1,11 +1,11 @@
 #pragma once
 
-#include "authenticator.h"
+#include "authentication.h"
 #include <QObject>
 
 namespace QRedmine {
 
-class TokenAuthentication : public Authenticator {
+class TokenAuthentication : public Authentication {
   Q_OBJECT
 public:
   explicit TokenAuthentication(const QStringView &apiKey,
@@ -16,7 +16,7 @@ private:
 
   // Authenticator interface
 public:
-  void addAuthenticationToRequest(const QNetworkRequest *request);
+  void addAuthenticationToRequest(QNetworkRequest *const request) override;
 };
 
 } // namespace QRedmine

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "QRedmineClient_global.h"
-#include "authenticator.h"
+#include "authentication.h"
+#include "qredmineclient_global.h"
 #include <QNetworkAccessManager>
 #include <QObject>
 namespace QRedmine {
@@ -26,20 +26,20 @@ public:
   void reconnect();
 
   [[nodiscard]] QUrl Url() const;
-  void setUrl(const QUrl& newUrl);
+  void setUrl(const QUrl &newUrl);
 
   [[nodiscard]] bool SslVerify() const;
   void setSslVerify(bool newSslVerify);
 
   [[nodiscard]] QString UserAgent() const;
-  void setUserAgent(const QString& newUserAgent);
+  void setUserAgent(const QString &newUserAgent);
 
 private:
   QNetworkAccessManager mManger{};
 
   QUrl mUrl{};
   bool mSslVerify = true;
-  Authenticator *mAuthenticator{};
+  Authentication *mAuthenticator{};
   QString mUserAgent{};
 };
 } // namespace QRedmine

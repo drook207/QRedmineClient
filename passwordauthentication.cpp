@@ -1,5 +1,5 @@
 #include "passwordauthentication.h"
-#include "QRedmineClient_global.h"
+#include "qredmineclient_global.h"
 #include <QLoggingCategory>
 namespace QRedmine {
 Q_LOGGING_CATEGORY(lcPasswordAuthenticator,
@@ -7,7 +7,7 @@ Q_LOGGING_CATEGORY(lcPasswordAuthenticator,
 PasswordAuthentication::PasswordAuthentication(const QStringView &username,
 											   const QStringView &password,
 											   QObject *parent)
-	: Authenticator(parent), mUsername(username.toLatin1()),
+	: Authentication(parent), mUsername(username.toLatin1()),
 	  mPassword(password.toLatin1().toBase64()) {}
 
 void PasswordAuthentication::addAuthenticationToRequest(

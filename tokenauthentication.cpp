@@ -1,5 +1,5 @@
 #include "tokenauthentication.h"
-#include "QRedmineClient_global.h"
+#include "qredmineclient_global.h"
 #include <QLoggingCategory>
 
 namespace QRedmine {
@@ -7,7 +7,7 @@ namespace QRedmine {
 Q_LOGGING_CATEGORY(lcTokenAuthenticator, "qredmineclient.tokenauthenticator")
 TokenAuthentication::TokenAuthentication(const QStringView &apiKey,
 										 QObject *parent)
-	: Authenticator(parent), mApiKey(apiKey.toLatin1()) {}
+	: Authentication(parent), mApiKey(apiKey.toLatin1()) {}
 
 void TokenAuthentication::addAuthenticationToRequest(
 	QNetworkRequest *const request) {

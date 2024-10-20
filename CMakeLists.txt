@@ -13,11 +13,11 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Network)
 
 add_library(
   QRedmineClient SHARED
-  QRedmineClient_global.h
-  qredmineclient.cpp
-  qredmineclient.h
-  authenticator.h
-  authenticator.cpp
+  qredmineclient_global.h
+  client.cpp
+  client.h
+  authentication.h
+  authentication.cpp
   passwordauthentication.h
   passwordauthentication.cpp
   tokenauthentication.h
