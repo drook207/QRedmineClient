@@ -1,6 +1,6 @@
 #include "request.h"
 
-namespace QRedmineClient {
+namespace QRedmine {
 
 	Request::Request(QObject *parent)
 		: QObject{parent}

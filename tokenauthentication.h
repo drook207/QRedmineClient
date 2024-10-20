@@ -1,18 +1,22 @@
 #pragma once
 
+#include "authenticator.h"
 #include <QObject>
 
-namespace QRedmineClient {
+namespace QRedmine {
 
-	class TokenAuthentication : public QObject
-	{
-		Q_OBJECT
-	public:
-		explicit TokenAuthentication(QObject *parent = nullptr);
+class TokenAuthentication : public Authenticator {
+  Q_OBJECT
+public:
+  explicit TokenAuthentication(const QStringView &apiKey,
+							   QObject *parent = nullptr);
 
-	signals:
+private:
+  QByteArray mApiKey{};
 
-	};
+  // Authenticator interface
+public:
+  void addAuthenticationToRequest(const QNetworkRequest *request);
+};
 
-	} // namespace QRedmineClient
-
+} // namespace QRedmine

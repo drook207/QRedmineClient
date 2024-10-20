@@ -1,6 +1,6 @@
 #include "authenticator.h"
 
-namespace QRedmineClient {
+namespace QRedmine {
 
 	Authenticator::Authenticator(QObject *parent)
 		: QObject{parent}

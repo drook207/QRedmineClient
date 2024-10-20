@@ -1,18 +1,16 @@
 #pragma once
 
+#include <QNetworkRequest>
 #include <QObject>
 
-namespace QRedmineClient {
+namespace QRedmine {
 
-	class Authenticator : public QObject
-	{
-		Q_OBJECT
-	public:
-		explicit Authenticator(QObject *parent = nullptr);
+class Authenticator : public QObject {
+  Q_OBJECT
+public:
+  explicit Authenticator(QObject *parent = nullptr);
 
-	signals:
+  virtual void addAuthenticationToRequest(const QNetworkRequest *request);
+};
 
-	};
-
-	} // namespace QRedmineClient
-
+} // namespace QRedmine

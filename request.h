@@ -2,7 +2,7 @@
 
 #include <QObject>
 
-namespace QRedmineClient {
+namespace QRedmine {
 
 	class Request : public QObject
 	{
