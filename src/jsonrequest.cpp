@@ -2,9 +2,9 @@
 
 namespace QRedmine {
 
-	JsonRequest::JsonRequest()
-	{
+JsonRequest::JsonRequest(QObject* parent)
+	: Request(parent)
+{
+}
 
-	}
-
-	} // namespace QRedmine
+} // namespace QRedmine

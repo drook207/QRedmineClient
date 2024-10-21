@@ -1,0 +1,29 @@
+//https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+{
+    // Activate all rules
+    "default": true,
+    // Use `atx` as heading style
+    "MD003": {
+        "style": "atx"
+    },
+    "MD004": {
+        "style": "sublist"
+    },
+    // Set list indentation to 4 spaces
+    "ul-indent": {
+        "indent": 4
+    },
+    // Allow hard tabs
+    "no-hard-tabs": false,
+    // Do not set a max line length
+    "line-length": false,
+    // Allow inline html
+    "no-inline-html": false,
+    // Allow headings with same content, e.q `Issues`
+    "no-duplicate-heading": {
+        "siblings_only": true
+    },
+    "code-block-style": {
+        "style": "fenced"
+    }
+}
