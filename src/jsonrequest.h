@@ -1,18 +1,21 @@
 #pragma once
 
-#include "QJsonObject"
 #include "request.h"
+#include <QJsonDocument>
 
 namespace QRedmine {
 
 class JsonRequest : public Request {
 public:
 	JsonRequest(QObject* parent = nullptr);
-	virtual void toJson() = 0;
-	virtual void fromJson() = 0;
+	virtual bool toJson() = 0;
+	virtual bool fromJson() = 0;
 
-private:
-	QJsonObject mData {};
+	[[nodiscard]] QJsonDocument Data() const;
+	void setData(const QJsonDocument& newData);
+
+protected:
+	QJsonDocument mData {};
 };
 
 } // namespace QRedmine

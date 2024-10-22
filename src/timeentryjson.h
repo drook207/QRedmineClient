@@ -5,9 +5,9 @@
 
 namespace QRedmine {
 
-class TimeEntryJson : public JsonRequest {
+class TimeEntryRequest : public JsonRequest {
 public:
-	TimeEntryJson(TimeEntry entry = TimeEntry(), QObject* parent = nullptr);
+	TimeEntryRequest(TimeEntry entry = TimeEntry(), QObject* parent = nullptr);
 
 private:
 	TimeEntry mEntry {};
@@ -17,8 +17,8 @@ private slots:
 
 	// JsonRequest interface
 public:
-	void toJson() override;
-	void fromJson() override;
+	bool toJson() override;
+	[[nodiscard]] bool fromJson() override;
 };
 
 } // namespace QRedmine

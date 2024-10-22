@@ -14,7 +14,6 @@ struct TimeEntry : Resource {
 	Item issue;
 	Item project;
 	QDate spentOn;
-
 	CustomFields customFields;
 };
 } // namespace QRedmine

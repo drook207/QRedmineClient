@@ -6,19 +6,18 @@
 namespace QRedmine {
 
 class PasswordAuthentication : public Authentication {
-  Q_OBJECT
+	Q_OBJECT
 public:
-  explicit PasswordAuthentication(const QStringView &username,
-								  const QStringView &password,
-								  QObject *parent = nullptr);
+	explicit PasswordAuthentication(
+		const QStringView& username, const QStringView& password, QObject* parent = nullptr);
 
 private:
-  QByteArray mUsername{};
-  QByteArray mPassword{};
+	QByteArray mUsername {};
+	QByteArray mPassword {};
 
-  // Authenticator interface
+	// Authenticator interface
 public:
-  void addAuthenticationToRequest(QNetworkRequest *const request) override;
+	void addAuthenticationToRequest(QNetworkRequest& request) override;
 };
 
 } // namespace QRedmine

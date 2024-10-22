@@ -6,17 +6,16 @@
 namespace QRedmine {
 
 class TokenAuthentication : public Authentication {
-  Q_OBJECT
+	Q_OBJECT
 public:
-  explicit TokenAuthentication(const QStringView &apiKey,
-							   QObject *parent = nullptr);
+	explicit TokenAuthentication(const QStringView& apiKey, QObject* parent = nullptr);
 
 private:
-  QByteArray mApiKey{};
+	QByteArray mApiKey {};
 
-  // Authenticator interface
+	// Authenticator interface
 public:
-  void addAuthenticationToRequest(QNetworkRequest *const request) override;
+	void addAuthenticationToRequest(QNetworkRequest& request) override;
 };
 
 } // namespace QRedmine

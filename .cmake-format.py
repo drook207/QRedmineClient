@@ -1,133 +1,3 @@
-# ----------------------------------
-# Options affecting listfile parsing
-# ----------------------------------
-with section("parse"):
-
-  # Specify structure for custom cmake functions
-  additional_commands = { 'cc_binary': { 'flags': ['ADD_RUNTARGET'],
-                   'kwargs': { 'DEPS': '*',
-                               'INC': { 'kwargs': { 'INTERFACE': '*',
-                                                    'PRIVATE': '*',
-                                                    'PUBLIC': '*'},
-                                        'pargs': 0},
-                               'LIBDIRS': { 'kwargs': { 'INTERFACE': '*',
-                                                        'PRIVATE': '*',
-                                                        'PUBLIC': '*'},
-                                            'pargs': '*'},
-                               'PKGDEPS': '*',
-                               'PROPERTIES': { 'kwargs': { 'EXPORT_NAME': 1,
-                                                           'OUTPUT_NAME': 1}},
-                               'SRCS': '*'},
-                   'pargs': '1+'},
-    'cc_library': { 'flags': ['STATIC', 'SHARED'],
-                    'kwargs': { 'DEPS': { 'kwargs': { 'INTERFACE': '*',
-                                                      'PRIVATE': '*',
-                                                      'PUBLIC': '*'},
-                                          'pargs': '*'},
-                                'INC': { 'kwargs': { 'INTERFACE': '*',
-                                                     'PRIVATE': '*',
-                                                     'PUBLIC': '*'},
-                                         'pargs': 0},
-                                'LIBDIRS': { 'kwargs': { 'INTERFACE': '*',
-                                                         'PRIVATE': '*',
-                                                         'PUBLIC': '*'},
-                                             'pargs': '*'},
-                                'PKGDEPS': '*',
-                                'PROPERTIES': { 'kwargs': { 'ARCHIVE_OUTPUT_NAME': 1,
-                                                            'EXPORT_NAME': 1,
-                                                            'INTERFACE_INCLUDE_DIRECTORIES': 1,
-                                                            'LIBRARY_OUTPUT_NAME': 1,
-                                                            'OUTPUT_NAME': 1,
-                                                            'SOVERSION': 1,
-                                                            'SUFFIX': 1,
-                                                            'VERSION': 1}},
-                                'SRCS': '*'},
-                    'pargs': '1+'},
-    'cc_test': { 'kwargs': { 'ARGV': '*',
-                             'DEPS': '*',
-                             'LABELS': '*',
-                             'PKGDEPS': '*',
-                             'SRCS': '*',
-                             'TEST_DEPS': '*',
-                             'WORKING_DIRECTORY': '*'},
-                 'pargs': 1},
-    'check_call': { 'flags': [ 'OUTPUT_QUIET',
-                               'ERROR_QUIET',
-                               'OUTPUT_STRIP_TRAILING_WHITESPACE',
-                               'ERROR_STRIP_TRAILING_WHITESPACE'],
-                    'kwargs': { 'COMMAND': '*',
-                                'ENCODING': '1',
-                                'ERROR_FILE': '1',
-                                'ERROR_VARIABLE': '1',
-                                'INPUT_FILE': '1',
-                                'OUTPUT_FILE': '1',
-                                'OUTPUT_VARIABLE': '1',
-                                'RESULTS_VARIABLE': '1',
-                                'RESULT_VARIABLE': '1',
-                                'TIMEOUT': '1',
-                                'WORKING_DIRECTORY': '1'}},
-    'check_pyoneline': { 'kwargs': {'ERROR_VARIABLE': 1, 'OUTPUT_VARIABLE': 1},
-                         'pargs': '+'},
-    'create_debian_binary_packages': { 'kwargs': {'DEPS': '*', 'OUTPUTS': '*'},
-                                       'pargs': [3, '+']},
-    'create_debian_depsrepo': {'pargs': [3, '+']},
-    'create_debian_packages': { 'kwargs': {'DEPS': '*', 'OUTPUTS': '*'},
-                                'pargs': [ { 'flags': ['FORCE_PBUILDER'],
-                                             'nargs': '+'}]},
-    'debhelp': {'pargs': ['1+'], 'spelling': 'DEBHELP'},
-    'exportvars': { 'kwargs': {'VARS': '+'},
-                    'pargs': '1+',
-                    'spelling': 'EXPORTVARS'},
-    'format_and_lint': { 'kwargs': { 'CC': '*',
-                                     'CMAKE': '*',
-                                     'JS': '*',
-                                     'PY': '*',
-                                     'SHELL': '*'}},
-    'get_debs': {'pargs': [3, '*']},
-    'gresource': {'kwargs': {'DEPENDS': '+', 'SRCDIR': 1}, 'pargs': 2},
-    'gtk_doc_add_module': { 'kwargs': { 'FIXREFOPTS': '*',
-                                        'IGNOREHEADERS': '*',
-                                        'LIBRARIES': '*',
-                                        'LIBRARY_DIRS': '*',
-                                        'SOURCE': '*',
-                                        'SUFFIXES': '*',
-                                        'XML': 1},
-                            'pargs': 1},
-    'importvars': { 'kwargs': {'VARS': '+'},
-                    'pargs': '1+',
-                    'spelling': 'IMPORTVARS'},
-    'join': {'kwargs': {'GLUE': 1}, 'pargs': [1, '+']},
-    'pkg_find': {'kwargs': {'PKG': '*'}},
-    'stage_files': { 'kwargs': { 'FILES': '*',
-                                 'LIST': 1,
-                                 'SOURCEDIR': 1,
-                                 'STAGE': 1}},
-    'tangent_addtest': { 'kwargs': { 'COMMAND': '+',
-                                     'CONFIGURATIONS': '+',
-                                     'DEPENDS': '+',
-                                     'LABELS': '+',
-                                     'NAME': 1,
-                                     'WORKING_DIRECTORY': 1}},
-    'tangent_extract_svg': {'kwargs': {'EXPORT': 1, 'OUTPUT': 1, 'SRC': 1}},
-    'tangent_fetchobj': {'kwargs': {'OUTDIR': 1}, 'pargs': 2},
-    'tangent_rmark_render': { 'kwargs': { 'DEPENDS': 1,
-                                          'FORMAT': 1,
-                                          'OUTPUT': 1,
-                                          'PAGENO': 1,
-                                          'UUID': 1},
-                              'pargs': 1},
-    'tangent_unzip': { 'kwargs': {'OUTPUT': '1+', 'WORKING_DIRECTORY': 1},
-                       'pargs': '1+'},
-    'travis_decrypt': {'kwargs': {}, 'pargs': [3]}}
-
-  # Override configurations per-command where available
-  override_spec = {}
-
-  # Specify variable tags.
-  vartags = []
-
-  # Specify property tags.
-  proptags = []
 
 # -----------------------------
 # Options affecting formatting.
@@ -147,14 +17,14 @@ with section("format"):
   # <tab_size> space characters (utf-8 0x20). In cases where the layout would
   # require a fractional tab character, the behavior of the  fractional
   # indentation is governed by <fractional_tab_policy>
-  use_tabchars = False
+  use_tabchars = True
 
   # If <use_tabchars> is True, then the value of this variable indicates how
   # fractional indentions are handled during whitespace replacement. If set to
   # 'use-space', fractional indentation is left as spaces (utf-8 0x20). If set
   # to `round-up` fractional indentation is replaced with a single tab character
   # (utf-8 0x09) effectively shifting the column to the next tabstop
-  fractional_tab_policy = 'use-space'
+  #fractional_tab_policy = 'round-up'
 
   # If an argument group contains more than this many sub-groups (parg or kwarg
   # groups) then force it to a vertical layout.
