@@ -1,0 +1,10 @@
+# This is the config file that the pre-commit hook for codespell as well as manual codespell executions will run.
+# Note that some of the skip options here are doubled: for example `src/libs/j1939/j1939.qmodel,./src/libs/j1939/j1939.qmodel`.
+# As you can see, once it is in the skip list with a relative path using a `./` and once without. This is a workaround to some
+# apparently present bug in codespell, where the skip list is handled differently when codespell is called from the pre-commit
+# framework than when called by hand. You can read more in that issue: https://github.com/codespell-project/codespell/issues/3306
+[codespell]
+ignore-words = ./.codespellignore
+exclude-file = ./.codespellexclude
+check-hidden = true
+builtin = clear,rare,informal,en-GB_to_en-US

@@ -1,0 +1,11 @@
+BasedOnStyle: WebKit
+ColumnLimit: 120
+Standard: Cpp11
+TabWidth: "4"
+UseTab: Always
+BreakBeforeBinaryOperators: None
+SeparateDefinitionBlocks: Always
+InsertBraces: true
+InsertNewlineAtEOF: true
+KeepEmptyLinesAtTheStartOfBlocks: false
+IndentCaseLabels: true
