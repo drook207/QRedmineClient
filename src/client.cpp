@@ -97,6 +97,8 @@ QString Client::UserAgent() const { return mUserAgent; }
 
 void Client::setUserAgent(const QString& newUserAgent) { mUserAgent = newUserAgent; }
 
+bool Client::timeEntry(TimeEntryRequest& request, const qint32 id) { QString parameter = QStringLiteral() return true; }
+
 void Client::handleSslError(QNetworkReply* const reply, const QList<QSslError>& errors)
 {
 	if (!mSslVerify) {
