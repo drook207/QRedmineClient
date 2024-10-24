@@ -3,6 +3,7 @@
 #include "authentication.h"
 #include "qredmineclient_global.h"
 #include "request.h"
+#include "timeentryjson.h"
 #include <QNetworkAccessManager>
 #include <QObject>
 
@@ -32,6 +33,8 @@ public:
 
 	[[nodiscard]] QString UserAgent() const;
 	void setUserAgent(const QString& newUserAgent);
+
+	bool timeEntry(TimeEntryRequest& request, const qint32 id);
 
 public slots:
 
